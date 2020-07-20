@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.8.1'
+}
+
+allure {
+    version = '2.9.0'
+    autoconfigure = true
+    aspectjweaver = true
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    seleniumVersion = '3.141.59'
+}
+
+dependencies {
+    implementation group: 'com.codeborne', name: 'selenide', version: '5.13.0'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '4.1.0'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-server', version: "${seleniumVersion}"
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: "${seleniumVersion}"
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-remote-driver', version: "${seleniumVersion}"
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-support', version: "${seleniumVersion}"
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-api', version: "${seleniumVersion}"
+    implementation group: 'io.appium', name: 'java-client', version: '7.3.0'
+
+
+    testImplementation group: 'org.testng', name: 'testng', version: '6.14.3'
+    testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
+}
+
+test {
+    useTestNG() {
+        suites 'src/test/resources/testng.xml'
+    }
+
+    options {
+//        systemProperties(System.getProperties())
+        systemProperty("test.browser", System.getProperty("test.browser"))
+    }
+
+}
