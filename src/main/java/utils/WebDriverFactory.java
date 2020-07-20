@@ -36,9 +36,7 @@ public enum WebDriverFactory {
     }
 
     private RemoteWebDriver startWebDriver() {
-        String runEnv = System.getProperty("test.browser");
-        if (runEnv == null)
-            throw new RuntimeException("the 'browser' property is not set");
+        String runEnv = System.getProperty("test.browser", "local");
         RemoteWebDriver remoteDriver;
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
