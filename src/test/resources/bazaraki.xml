@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Wisebits tests mobile" verbose="1" parallel="tests" thread-count="3" >
+    <test name="Bazaraki" >
+        <classes>
+            <class name="bazaraki.BazarakiTest" />
+        </classes>
+    </test>
+</suite>
+
+

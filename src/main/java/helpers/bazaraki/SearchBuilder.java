@@ -1,4 +1,4 @@
-package helpers;
+package helpers.bazaraki;
 
 import pageObjects.bazaraki.BazarakiSearchPage;
 

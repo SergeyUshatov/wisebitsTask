@@ -62,7 +62,7 @@ public enum WebDriverFactory {
                 remoteDriver = new ChromeDriver();
                 break;
         }
-        remoteDriver.manage().window().fullscreen();
+//        remoteDriver.manage().window().fullscreen();
         return remoteDriver;
     }
 

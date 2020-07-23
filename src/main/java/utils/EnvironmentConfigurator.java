@@ -62,4 +62,8 @@ public enum EnvironmentConfigurator {
             throw new RuntimeException();
         }
     }
+
+    public String getUserNameOnUi() {
+        return properties.getProperty("amazon.user.name.ui");
+    }
 }

@@ -1,13 +1,16 @@
 package pageObjects.amazon;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import utils.EnvironmentConfigurator;
 import utils.WebElementUtils;
 
 import static com.codeborne.selenide.Selenide.$;
+import static utils.Constants.*;
 
-public class AmazonPage {
+public class AmazonPage extends AmazonBasePage {
 
     private SelenideElement navMenu = $(By.id("nav-hamburger-menu"));
     private SelenideElement navAccount = $(By.id("nav-link-accountList"));
@@ -17,13 +20,14 @@ public class AmazonPage {
     private SelenideElement cart = $(By.id("nav-cart"));
 
     public void clickOnSignOut() {
-        signOut.waitUntil(Condition.visible, 10000);
+        signOut.waitUntil(Condition.visible, WAIT_10_SEC);
         signOut.click();
     }
 
     public AmazonSearchResultsPage search(String criteria) {
-        searchField.setValue(criteria);
-        searchField.pressEnter();
+        searchField.waitUntil(Condition.enabled, WAIT_10_SEC)
+                .setValue(criteria)
+                .pressEnter();
         return new AmazonSearchResultsPage();
     }
 
@@ -34,6 +38,10 @@ public class AmazonPage {
 
     public void hoverAccount() {
         navAccount.hover();
-        yourAccount.waitUntil(Condition.visible,20, 1);
+        yourAccount.waitUntil(Condition.visible,WAIT_20_SEC, WAIT_100_MILISEC);
+    }
+
+    public SelenideElement getLoggedUserName() {
+        return $(new Selectors.ByText("Hello, " + EnvironmentConfigurator.INSTANCE.getUserNameOnUi()));
     }
 }

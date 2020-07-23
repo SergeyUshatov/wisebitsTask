@@ -5,11 +5,9 @@ import org.openqa.selenium.By;
 import utils.EnvironmentConfigurator;
 import utils.WebElementUtils;
 
-
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.$;
 
-public class AmazonLoginPage {
+public class AmazonLoginPage extends AmazonBasePage {
 
     private SelenideElement signIn = $(By.xpath("user.name"));
     private SelenideElement usernameField = $(By.name("email"));
@@ -18,7 +16,7 @@ public class AmazonLoginPage {
     private SelenideElement signInSubmit = $(By.id("signInSubmit"));
 
     public AmazonLoginPage navigate() {
-        open(EnvironmentConfigurator.INSTANCE.getDesktopTestUrl());
+        super.navigate(EnvironmentConfigurator.INSTANCE.getDesktopTestUrl());
         return this;
     }
 

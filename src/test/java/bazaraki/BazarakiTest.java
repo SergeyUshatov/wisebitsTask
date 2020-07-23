@@ -1,17 +1,12 @@
+package bazaraki;
+
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import utils.WebDriverFactory;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class BazarakiTest extends TestBase {
-
-    @AfterMethod
-    public void afterTest( ) {
-        WebDriverFactory.INSTANCE.stopMobileDriver();
-    }
 
     @Test
     public void bazarakiTestTask() {

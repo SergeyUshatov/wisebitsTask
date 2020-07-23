@@ -1,4 +1,4 @@
-package helpers;
+package helpers.bazaraki;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;

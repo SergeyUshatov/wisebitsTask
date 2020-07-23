@@ -1,15 +1,15 @@
-import helpers.AmazonHelper;
-import helpers.BazarakiHelper;
+package bazaraki;
+
+import helpers.bazaraki.BazarakiHelper;
+import org.testng.annotations.AfterMethod;
+import utils.WebDriverFactory;
 
 public abstract class TestBase {
-    private AmazonHelper amazonHelper;
     private BazarakiHelper bazarakiHelper;
 
-    protected AmazonHelper getAmazonHelper() {
-        if (amazonHelper == null) {
-            amazonHelper = new AmazonHelper();
-        }
-        return amazonHelper;
+    @AfterMethod
+    public void afterTest( ) {
+        WebDriverFactory.INSTANCE.stopMobileDriver();
     }
 
     protected BazarakiHelper getBazarakiHelper() {

@@ -47,50 +47,10 @@ HERE TEST FOR MANUAL TESTS TASK
 	User is logged in to the web site
 	(Repeat the same test with +30 in country code dropdown)
 
-`test 3, 4`
-
-	select +357 from country code dropdown
-	leave phone number field blank
-	accept policy
-	click on continue
-	check: 
-	error message saying that phone number is empty or invalid is displayed
-	(Repeat the same test with +30 in country code dropdown)
-
-`test 5, 6`
+`test 3, 4
 
 	select +357 from country code dropdown
 	enter only one digit into phone number field
-	accept policy
-	click on continue
-	check: 
-	error message saying that phone number is empty or invalid is displayed
-	(Repeat the same test with +30 in country code dropdown)
-
-`test 7, 8`
-
-	select +357 from country code dropdown
-	enter valid phone number + 1 digit into phone number field
-	accept policy
-	click on continue
-	check: 
-	error message saying that phone number is empty or invalid is displayed
-	(Repeat the same test with +30 in country code dropdown)
-
-`test 7, 8`
-
-	select +357 from country code dropdown
-	enter valid phone number + 1 digit into phone number field
-	accept policy
-	click on continue
-	check: 
-	error message saying that phone number is empty or invalid is displayed
-	(Repeat the same test with +30 in country code dropdown)
-
-`test 9, 10`
-
-	select +357 from country code dropdown
-	enter characters into phone number field
 	accept policy
 	click on continue
 	check: 
