@@ -1,14 +1,11 @@
 package amazon;
 
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
 import org.hamcrest.MatcherAssert;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import utils.WebDriverFactory;
 
 import java.util.List;
 
@@ -19,8 +16,6 @@ public class AmazonTest extends TestBase {
 
     @BeforeMethod
     public void beforeTest() {
-        WebDriver webDriver = WebDriverFactory.INSTANCE.getWebDriver();
-        WebDriverRunner.setWebDriver(webDriver);
         getNavigationHelper().navigateToAmazon();
         getAmazonLoginHelper().login();
     }
@@ -28,7 +23,6 @@ public class AmazonTest extends TestBase {
     @AfterMethod
     public void afterTest() {
         getAmazonLoginHelper().logout();
-        WebDriverFactory.INSTANCE.stopDriver();
     }
 
     @Test(dataProvider = "task data")
